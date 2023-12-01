@@ -18,7 +18,7 @@ def talker():
 	angular = 0.0
 
 	while not rospy.is_shutdown():
-		pub = rospy.Publisher('cmd_vel', Twist)
+		pub = rospy.Publisher('/cmd_vel', Twist)
 		#hello_str = "hello world %s" % rospy.get_time()
 		msg = Twist()
 		msg.linear.x = linear
@@ -43,6 +43,7 @@ def talker():
 			pub.publish(msg)
 			quit()
 		else:
+			print("Linear ", msg.linear.x, " , angular ", msg.angular.z)			
 			continue
 
 if __name__ == '__main__':
